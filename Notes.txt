@@ -1,0 +1,141 @@
+Framework :
+1. It is set of conceptual structure and guidelines that can be used to build something useful
+2. It may include predefined classes and functions that process input, manage hardware services and interact with system.
+3. Purpose of framework is to focus on building unique logic of the project rather than writing code from scratch
+
+why to use framework :
+1. Collection of tools
+2. No need to start from scratch
+3. Code reusability
+4. Testing
+5. Debugging
+
+==========================================================================================
+
+Web Framework :
+1. It is used to build web applications.
+2. It provides tools and libraries to simplify comman web applications operations. This may include web services, API's, etc.
+3. It helps with variety of tasks,from templating, database access to session management and code reuse.
+
+==========================================================================================
+
+Model View Template (MVT) :
+1. It is design pattern that separates an application into three main logical components
+Model, View and Template.
+2. Each components has their own role in project.
+
+Model :
+It is responsible to handle database. It is data access layer which handles the data.
+
+View :
+1. The user can send the request by interacting with template, the view handles these requests and send it to Model than get appropriate response from Model, sends the response to template.
+2. It may also have required logic.
+3. It work as mediator between Model and Template.
+
+Template :
+1. It represents how the data should be presented to application user. User can read or write the data from template.
+2. Basically, it is responsible for showing end user content, or we can say user interface.
+3. It consists of HTML, CSS and JS mixed with Django Template Language.
+
+Working of MVT :
+1. user sends the request which further hit to urls which is routed to one of the view.
+2. view gets executed if request required data from database then view sends request to Model further model interacts with database and get appropriate response from database.
+3. Once model gets response (required data) from database than model sends response to view.
+4. View will execute all logical part written inside it than to represent it, It will render the template further template will be presented to user.
+
+==========================================================================================
+
+Django :
+1. It is free open source python based high-level web framework.
+2. It follows MVT architectural design pattern.
+3. It is maintain by Django Software Foundation
+
+What we can build using Django :
+1. High end web application
+2. It encourages rapid development and clean, pragmatic design.
+Applications build using django :
+Youtube
+Instagram
+Bitbucket
+NASA
+Spotify
+
+Advantages of django :
+1. Open Source
+2. Secure
+3. Fast
+4. Scalable
+5. Provides authentication
+6. Provides web development server by default
+7. Provides SQLite database by default
+
+==========================================================================================
+
+Django Project:
+1. It may contain multiple project applications which means a group of applications and files are called as django project.
+2. An application is part of django project
+
+for example :
+SchoolProject
+    - Registration App
+    - Fees App
+    - Exam App
+    - Attendance App
+    - Result App
+
+To create a project:
+django-admin startproject projectname
+
+==========================================================================================
+
+Django Project Directory Structure :
+
+schoolproject         --> outer folder/ root directory
+    - schoolproject   -->  inner folder
+        - __pycache__ --> this folder contain all cache files
+        - __init__.py
+        - asgi.py
+        - settings.py
+        - urls.py
+        - wsgi.py
+    - db.sqlite3      --> database file
+    - manage.py
+
+
+__init__.py :
+The folder which contains __init__.py file is considered as python package
+
+wsgi.py :
+1. Web server gateway interface work as interface for web server and web application.
+2. It provides standard synchronous python apps.
+3. When wsgi server loads your application, djnago needs to import the settings module that' where your entire application is defined.
+4. Django use the DJANGO_SETTINGS_MODULE environment variable to locate the appropriate settings module.
+5. We can use different value for development and production.
+6. If variable isn't set, the default wsgi.py sets it projectname.settings that's how runserver discovers the default settings file.
+
+asgi.py :
+1. Asynchronous server gateway interface is successor of wsgi.
+2. It work as interface for web server and web application.
+3. It provides standard for both asynchronous and synchronous python apps.
+
+settings.py :
+This file contains all information and data about project settings.
+example : database configuration, templates, installed application, validators, etc
+
+urls.py :
+This file contains all information of url attached with applications.
+
+manage.py :
+1. It is automatically created in each django project.
+2. It is django command line utility and also set DJANGO_SETTINGS_MODULE environment variable so that it points to your project's settings.py file.
+3. when working with single django project it is easier to use manage.py than django-admin.
+
+==========================================================================================
+
+
+
+
+
+
+
+
