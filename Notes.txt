@@ -91,7 +91,7 @@ django-admin startproject projectname
 Django Project Directory Structure :
 
 schoolproject         --> outer folder/ root directory
-    - schoolproject   -->  inner folder
+    - schoolproject   --> inner project folder
         - __pycache__ --> this folder contain all cache files
         - __init__.py
         - asgi.py
@@ -108,7 +108,7 @@ The folder which contains __init__.py file is considered as python package
 wsgi.py :
 1. Web server gateway interface work as interface for web server and web application.
 2. It provides standard synchronous python apps.
-3. When wsgi server loads your application, djnago needs to import the settings module that' where your entire application is defined.
+3. When wsgi server loads your application, django needs to import the settings module that's where your entire application is defined.
 4. Django use the DJANGO_SETTINGS_MODULE environment variable to locate the appropriate settings module.
 5. We can use different value for development and production.
 6. If variable isn't set, the default wsgi.py sets it projectname.settings that's how runserver discovers the default settings file.
@@ -132,10 +132,55 @@ manage.py :
 
 ==========================================================================================
 
+How to create application and installed in project :
+1. Change directory to root directory : cd schoolproject
+2. Create application : python manage.py startapp appname
+3. Add/Install application in settings.py file :
+    - open settings.py file
+    - add appname below in-built apps in INSTALLED_APPS list
+    - save settings.py file
 
 
+==========================================================================================
+
+Application Directory Structure :
+
+course
+    - migrations
+        - __init__.py
+    - __init__.py
+    - admin.py
+    - apps.py
+    - models.py
+    - tests.py
+    - views.py
 
 
+migrations :
+This folder contains __init__.py file which means it's python package.
+It also contains all files which are created after we run makemigration command
+
+__init__.py :
+The folder contains __init__.py file is considered as python package
+
+admin.py :
+This file is used to register models (sql tables) so we could perform CRUD operations from Admin application.
+Admin application is provided by Django to perform CRUD operations.
+
+
+apps.py :
+This file is used for app configuration.
+
+models.py :
+This file is used to create our own model classes later these classes will be converted to database tables by Django for our application.
+
+tests.py :
+This file is used to create tests.
+
+views.py :
+This file is used to create view. we write all business logic code in the file.
+
+==========================================================================================
 
 
 
