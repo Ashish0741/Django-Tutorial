@@ -182,5 +182,56 @@ This file is used to create view. we write all business logic code in the file.
 
 ==========================================================================================
 
+urls.py :
+It is used to define url pattern for view functions of applications.
 
+path() function:
+path(route/url,view,kwargs=None,name=None)
+
+route :
+the route argument should be string that contains a url pattern.
+
+view :
+the view argument is view function or it can be django.urls.include()
+
+kwargs :
+It allows to pass additional arguments to view function. It should be dictionary.
+
+name :
+the name argument is used for url reversing.
+
+==========================================================================================
+
+How to write view function and map them to urlpattern :
+
+1. Create project : django-admin startproject projectname
+2. Go to root directory : cd projectname
+3. Create application : python manage.py startapp appname
+4. Add/Install application inside INSTALLED_APPS in project's settings.py file.
+5. Write view functions inside views.py file (app dictionary)
+6. Define url for view function of application :
+    - open urls.py (inner project directory)
+    - import views module of application
+    - write url pattern
+    - save urls.py file
+
+==========================================================================================
+
+How to write view function in multiple application and map them to project urlpattern :
+
+1. Create project : django-admin startproject projectname
+2. Go to root directory : cd projectname
+3. Create application1 : python manage.py startapp appname1
+4. Create application2 : python manage.py startapp appname2
+5. Add/Install applications inside INSTALLED_APPS in project's settings.py file.
+6. Write view functions inside views.py file (app dictionary)
+7. Define url for view function of application
+
+NOTE :
+drawback of mapping application url in project urls.py :
+1. Multiple urls will be mapped inside one project urls.py which will be difficult to handle n number of urls in one place.
+2. Need to manage imports of application view function
+3. Problem of application reusability
+
+==========================================================================================
 
