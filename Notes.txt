@@ -235,3 +235,37 @@ drawback of mapping application url in project urls.py :
 
 ==========================================================================================
 
+How to create templates folder and template files :
+
+1. Create project : django-admin startproject projectname
+2. Go to root directory : cd projectname
+3. Create application1 : python manage.py startapp appname1
+4. Create application2 : python manage.py startapp appname2
+5. Add/Install applications inside INSTALLED_APPS in project's settings.py file.
+6. Create templates folder inside root dictionary
+7. Create TEMPLATES_DIR variable inside settings.py and assign (BASE_DIR / 'templates') value in it.
+8. Write view functions inside views.py file (app dictionary)
+    - use render() function to send HttpResponse object
+    - syntax : render(request,template_name,context,content_type,status,using)
+9. Define url for view function of application
+10. Create template files inside templates folder and write html code for representation.
+
+==========================================================================================
+
+How to create templates folder and render template files in each separate sub directory:
+
+1. Create project : django-admin startproject projectname
+2. Go to root directory : cd projectname
+3. Create application1 : python manage.py startapp appname1
+4. Create application2 : python manage.py startapp appname2
+5. Add/Install applications inside INSTALLED_APPS in project's settings.py file.
+6. Create templates folder inside root dictionary
+7. Create separate sub folders for each application inside templates folder.
+8. Create TEMPLATES_DIR variable inside settings.py and assign (BASE_DIR / 'templates') value in it.
+9. Write view functions inside views.py file (app directory)
+    - use render() function to send HttpResponse object
+    - syntax : render(request,path/template_name,context,content_type,status,using)
+10. Define url for view function of application
+11. Create template files inside templates folder and write html code for representation.
+
+==========================================================================================
