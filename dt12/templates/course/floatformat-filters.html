@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django | Float Format Filters</title>
+</head>
+<body>
+    <h1>Example 1 : Floating Number</h1>
+    <h2>{{ num1 }}</h2>
+    <h2>{{ num2 }}</h2>
+    <h2>{{ num3 }}</h2>
+    
+    <h1>Example 2 : Floating Number upto 2 decimals</h1>
+    <h2>{{ num1 | floatformat:2 }}</h2>
+    <h2>{{ num2 | floatformat:2 }}</h2>
+    <h2>{{ num3 | floatformat:2 }}</h2>
+
+    <h1>Example 3 : Floating Number round off</h1>
+    <h2>{{ num1 | floatformat:0 }}</h2>
+    <h2>{{ num2 | floatformat:0 }}</h2>
+    <h2>{{ num3 | floatformat:0 }}</h2>
+
+    <h1>Example 4 : Floating Number remove zero upto 3 decimal</h1>
+    <h2>{{ num1 | floatformat:-3 }}</h2>
+    <h2>{{ num2 | floatformat:-3 }}</h2>
+    <h2>{{ num3 | floatformat:-3 }}</h2>
+
+</body>
+</html>

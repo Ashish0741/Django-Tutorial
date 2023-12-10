@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django | Filters</title>
+</head>
+<body>  
+    <h1>CapFirst : {{ text | capfirst }}</h1>
+    <h1>Length : {{ text | length }}</h1>
+    <h1>Lower : {{ text | lower }}</h1>
+    <h1>Upper : {{ text | upper }}</h1>
+    <h1>Default : {{ text | default:'Something went wrong...' }}</h1>
+    <h1>Truncate Words : {{ text | truncatewords:2 }}</h1>
+    <h1>Truncate Characters : {{ text | truncatechars:4 }}</h1>
+    <h1>Slicing : {{ text | slice:2 }}</h1>
+    <h1>Chaining : {{ text | upper | truncatechars:5 }}</h1>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django | Conditional Statements</title>
+</head>
+<body>
+    <h1>Example 1 : if </h1>
+    {% if name %}
+        <h2>Hello {{ name }}</h2>
+    {% endif %}
+
+    <h1>Example 2 : and </h1>
+    {% if name and seats %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 3 : or </h1>
+    {% if name or seats %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 4 : '==' </h1>
+    {% if name == 'Django' %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 5 : '!=' </h1>
+    {% if name != 'django' %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 6 : '>' </h1>
+    {% if seats > 10 %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 7 : '<' </h1>
+    {% if seats < 1 %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 8 : '>=' </h1>
+    {% if seats >= 20 %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 9 : '<=' </h1>
+    {% if seats <= 20 %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 10 : 'not' </h1>
+    {% if not check %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+
+    <h1>Example 11 : 'in' </h1>
+    {% if 'g' in name %}
+        <h2>{{seats}} seats are available for course {{name}}</h2>
+    {% endif %}
+</body>
+</html>

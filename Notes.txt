@@ -269,3 +269,314 @@ How to create templates folder and render template files in each separate sub di
 11. Create template files inside templates folder and write html code for representation.
 
 ==========================================================================================
+
+Filters in Django Template Language :
+
+When we need to modify a variable before displaying we can use filters. 
+Pipe '|' is used to apply filter.
+
+syntax : {{ variable | filter }}
+ex : {{ name | upper }}
+
+Some of filters takes arguments :
+syntax : {{ variable | filter : argument }}
+ex : {{ article | truncateword : 40 }}
+
+Filters can be chained :
+syntax : {{ variable | filter | filter }}
+ex : {{ article | upper | truncateword : 40 }}
+
+capfirst :
+It capitalizes the first character of the value. If the first character is not a letter, this filter has no effect.
+syntax : {{ value | capfirst }}
+
+default :
+If value evaluates to false then it will show default value otherwise uses the value.
+syntax : {{ value | default : 'nothing' }}
+if string is empty for that also it will show default value
+
+length :
+It returns length of value. it works for both strings and lists. it returns 0 for underfined variable.
+syntax : {{ value | length }}
+
+lower :
+it will change all value to lowercase
+syntax : {{ value | lower }}
+
+==========================================================================================
+
+Date & Time :
+
+prefined formats :
+
+DATE_FORMAT : Feb 9, 2023
+DATETIME_FORMAT : Feb 9, 2023, 10 p.m.
+SHORT_DATE_FORMAT : 02/09/2023
+SHORT_DATETIME_FORMAT : 02/09/2023 10 p.m.
+TIME_FORMAT : "01:24"
+
+syntax : {{ value | date:'SHORT_DATE_FORMAT' }}
+syntax : {{ value | time:'TIME_FORMAT' }}
+
+==========================================================================================
+
+Dot lookup :
+Technically, when the template system encounters a dot, it tries the following lookups in the order.
+- dictionary lookup
+- attribute/method lookup
+- numeric index lookup
+
+==========================================================================================
+
+Conditional Statements :
+
+<h1>Example 1 : if </h1>
+{% if name %}
+    <h2>Hello {{ name }}</h2>
+{% endif %}
+
+<h1>Example 2 : and </h1>
+{% if name and seats %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 3 : or </h1>
+{% if name or seats %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 4 : '==' </h1>
+{% if name == 'Django' %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 5 : '!=' </h1>
+{% if name != 'django' %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 6 : '>' </h1>
+{% if seats > 10 %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 7 : '<' </h1>
+{% if seats < 1 %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 8 : '>=' </h1>
+{% if seats >= 20 %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 9 : '<=' </h1>
+{% if seats <= 20 %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 10 : 'not' </h1>
+{% if not check %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+<h1>Example 11 : 'in' </h1>
+{% if 'g' in name %}
+    <h2>{{seats}} seats are available for course {{name}}</h2>
+{% endif %}
+
+==========================================================================================
+
+Control Statements :
+
+<h1>Example 1 : </h1>
+{% for name in names %}
+    {{ name }}
+{% endfor %}
+
+<h1>Example 2 : Reverse </h1>
+{% for name in names reversed %}
+    {{ name }}
+{% endfor %}
+
+<h1>Example 3 : ul tag </h1>
+<ul>
+{% for name in names %}
+    <li>{{ name }}</li>
+{% endfor %}
+</ul>
+
+<h1>Example 4 : empty tag </h1>
+<ul>
+{% for name in namei %}
+    <li>{{ name }}</li>
+{% empty %}
+    <h3>List is empty...</h3>
+{% endfor %}
+</ul>
+
+<h1>Example 5 : forloop.counter </h1>
+{% for name in names %}
+    {{ forloop.counter }} - {{ name }} <br>
+{% endfor %}
+
+<h1>Example 6 : forloop.counter0 </h1>
+{% for name in names %}
+    {{ forloop.counter0 }} - {{ name }} <br>
+{% endfor %}
+
+<h1>Example 7 : forloop.revcounter0 </h1>
+{% for name in names %}
+    {{ forloop.revcounter0 }} - {{ name }} <br>
+{% endfor %}
+
+<h1>Example 8 : forloop.revcounter </h1>
+{% for name in names %}
+    {{ forloop.revcounter }} - {{ name }} <br>
+{% endfor %}
+
+<h1>Example 9 : forloop.first </h1>
+{% for name in names %}
+    {{ forloop.first }} - {{ name }} <br>
+{% endfor %}
+
+<h1>Example 10 : forloop.last </h1>
+{% for name in names %}
+    {{ forloop.last }} - {{ name }} <br>
+{% endfor %}
+
+<h1>Example 11 : how to access nested dictionary </h1>
+<h2>{{ nested_students }}</h2>
+<h2>{{ nested_students.st1 }}</h2>
+<h2>{{ nested_students.st2 }}</h2>
+<h2>{{ nested_students.st3 }}</h2>
+<h2>{{ nested_students.st4 }}</h2>
+<h2>{{ nested_students.st1.name }}</h2>
+<h2>{{ nested_students.st1.age }}</h2>
+<h2>{{ nested_students.st2.name }}</h2>
+<h2>{{ nested_students.st2.age }}</h2>
+<h2>{{ nested_students.st3.name }}</h2>
+<h2>{{ nested_students.st3.age }}</h2>
+<h2>{{ nested_students.st4.name }}</h2>
+<h2>{{ nested_students.st4.age }}</h2>
+
+<h1>Example 12 : nested forloop </h1>
+{% for key, value in nested_students.items %}
+    {% for key, value in value.items %}
+        <h2>{{ forloop.parentloop.counter}} - {{ key | capfirst }} : {{ value }}</h2>
+    {% endfor %}
+    <hr>
+{% endfor %}
+
+==========================================================================================
+
+How to create templates inside application :
+
+1. Create project : django-admin startproject projectname
+2. Go to root directory : cd projectname
+3. Create application1 : python manage.py startapp appname1
+4. Create application2 : python manage.py startapp appname2
+5. Add/Install applications inside INSTALLED_APPS in project's settings.py file.
+6. Create templates folder inside each application directory.
+7. Check 'APP_DIRS' : True in settings.py.
+8. Create appname_folder inside appname/templates directory for template files.
+9. Create template files inside appname/templates/appname_folder.
+10. Write view functions inside views.py file (app dictionary)
+11. Define url for view function of application
+12. Write template files html code for representation.
+
+==========================================================================================
+
+Static Files in Django :
+
+1. CSS files, JS files, Images, Videos etc are considered as static files in django.
+2. Django provides django.contrib.staticfiles to help you manage them.
+3. django.contrib.staticfiles collects static files from each applications ( and any other places you specify ) into one single location that can be served in production.
+
+==========================================================================================
+
+How to create static folder and files :
+
+We create static folder inside root directory folder then inside static folder we create required folders which will contains all static files respectively like css folder will contain all css files , images folder will contains all images and so on.
+
+- root directory
+    - application directory
+    - static folder
+        - css folder
+            - style.css
+        - images folder
+            - img1.png
+            - img2.png
+    - manage.py
+
+==========================================================================================
+
+Add static folder path in settings.py :
+
+STATIC_DIR = BASE_DIR / 'static'
+STATICFILES_DIRS = [STATIC_DIR]
+
+==========================================================================================
+
+Load static files :
+
+{% load static %} --> it is used to load custom template tags
+
+{% static 'css/style.css' %} --> it is used to reference the static files
+
+==========================================================================================
+
+STATIC_URL :
+
+This is the URL to use when referring to static file located in STATIC_ROOT. It must end in slash if set to non-empty value.
+ex : '/static/'
+
+
+STATIC_ROOT :
+
+This is absolute path to the directory where collectstatic will collect static files for deployment. It is by default None.
+ex : 'BASE / 'static/''
+
+STATICFILES_DIRS :
+
+This setting defines the additional locations the staticfiles app will traverse if FileSystemFinder finder is enabled.
+ex : if you use the collectstatic or findstatic management command or use static file serving view. It is by default empty.
+
+STATICFILES_DIRS = [
+    'static1',
+    'static2',
+    static3,
+]
+
+STATICFILES_STORAGE :
+
+The file storage engine to use when collecting static files with collectstatic management command.
+default : 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+==========================================================================================
+
+How to create static folder and files inside root directory :
+
+1. Create project : django-admin startproject projectname
+2. Go to root directory : cd projectname
+3. Create application1 : python manage.py startapp appname1
+4. Create application2 : python manage.py startapp appname2
+5. Add/Install applications inside INSTALLED_APPS in project's settings.py file.
+6. Create templates folder inside each application directory and root directory.
+7. Check 'APP_DIRS' : True in settings.py.
+8. Create TEMPLATES_DIR variable inside settings.py and assign (BASE_DIR / 'templates') value in it and paste it in TEMPLATES = [].
+9. Create appname_folder inside appname/templates directory for template files.
+10. Create template files inside appname/templates/appname_folder.
+11. Create static folder inside root directory.
+12. Create css,js, images ,videos folder inside static folder.
+13. Create static files inside respective static folders.
+14. Write view functions inside views.py file (app dictionary)
+15. Define url for view function of application
+16. Write template files html code for representation.
+
+==========================================================================================
+
+
+
+
+
