@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/project.css' %}">
+    <link rel="stylesheet" href="{% static 'course/css/style.css' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>Start Learning {{name}}...</h1>
+    <br>
+    <img src="{% static 'course/images/django1.jpg' %}" alt="{{name}}">
+    <br>
+    <button>Click Me For Magic</button>
+
+    {% comment %} JS scripts {% endcomment %}
+    <script src="{% static 'course/js/script.js' %}"></script>
+</body>
+</html>

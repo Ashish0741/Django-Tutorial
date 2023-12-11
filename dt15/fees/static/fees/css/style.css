@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 40px;
+    text-align: center;
+}
+
+img {
+    height: 400px;
+    width: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: gold;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
