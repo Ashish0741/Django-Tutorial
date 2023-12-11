@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %}{{block.super}} Course{% endblock title %}
+
+{% block navbar %}
+{{block.super}}
+<ul>
+    <li>Fees</li>
+</ul>
+{% endblock navbar %}
+
+{% block content %}
+    <h1>This is {{name}} course page</h1>
+    <h2>Course fees : Rs. {{fees}}</h2>
+{% endblock content %}

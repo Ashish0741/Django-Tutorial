@@ -567,14 +567,88 @@ How to create static folder and files inside root directory :
 8. Create TEMPLATES_DIR variable inside settings.py and assign (BASE_DIR / 'templates') value in it and paste it in TEMPLATES = [].
 9. Create appname_folder inside appname/templates directory for template files.
 10. Create template files inside appname/templates/appname_folder.
-11. Create static folder inside root directory.
-12. Create css,js, images ,videos folder inside static folder.
-13. Create static files inside respective static folders.
+11. Add STATIC_DIR = BASE_DIR / 'static' & STATICFILES_DIRS = [STATIC_DIR,] inside setting.py.
+12. Create static folder inside root directory.
+13. Create css,js, images ,videos folder inside static folder.
+14. Create static files inside respective static folders.
+15. Write view functions inside views.py file (app dictionary)
+16. Define url for view function of application
+17. Write template files html code for representation.
+
+==========================================================================================
+
+How to create static folder and files inside application directory :
+
+1. Create project : django-admin startproject projectname
+2. Go to root directory : cd projectname
+3. Create application1 : python manage.py startapp appname1
+4. Create application2 : python manage.py startapp appname2
+5. Add/Install applications inside INSTALLED_APPS in project's settings.py file.
+6. Create templates folder inside each application directory and root directory.
+7. Check 'APP_DIRS' : True in settings.py.
+8. Create TEMPLATES_DIR variable inside settings.py and assign (BASE_DIR / 'templates') value in it and paste it in TEMPLATES = [].
+9. Create appname_folder inside appname/templates directory for template files.
+10. Create template files inside appname/templates/appname_folder.
+11. Create static folder inside each application directory.
+12. Create appname_folder inside appname/static directory for static files. 
+12. Create css,js, images ,videos folder inside appname/static/appname_folder directory.
+13. Create static files inside respective appname/static/appname_folder directory.
 14. Write view functions inside views.py file (app dictionary)
 15. Define url for view function of application
 16. Write template files html code for representation.
 
 ==========================================================================================
+
+How to create static folder and files inside project & application directory :
+
+1. Create project : django-admin startproject projectname
+2. Go to root directory : cd projectname
+3. Create application1 : python manage.py startapp appname1
+4. Create application2 : python manage.py startapp appname2
+5. Add/Install applications inside INSTALLED_APPS in project's settings.py file.
+6. Create templates folder inside each application directory and root directory.
+7. Check 'APP_DIRS' : True in settings.py.
+8. Create TEMPLATES_DIR variable inside settings.py and assign (BASE_DIR / 'templates') value in it and paste it in TEMPLATES = [].
+9. Create appname_folder inside appname/templates directory for template files.
+10. Create template files inside appname/templates/appname_folder.
+11. Add STATIC_DIR = BASE_DIR / 'static' & STATICFILES_DIRS = [STATIC_DIR,] inside setting.py.
+12. Create static folder inside each application directory.
+13. Create appname_folder inside appname/static directory for static files. 
+14. Create css,js, images ,videos folder inside appname/static/appname_folder directory.
+15. Create static files inside respective appname/static/appname_folder directory.
+16. Create static folder inside root directory.
+17. Create css,js, images ,videos folder inside static folder.
+18. Create static files inside respective static folders.
+19. Write view functions inside views.py file (app dictionary)
+20. Define url for view function of application
+21. Write template files html code for representation.
+
+==========================================================================================
+
+Template Inheritance :
+
+1. It allows you to build base skeleton template that contains all the comman elements of your site and defines blocks that child templates can override.
+2. the extends tag is used to inherit the template.
+3. extends tag tells the template engine that this template "extends" another template.
+4. When the template engine evaluates this template, first it locates the parent's template.
+5. You can use as many levels of Inheritance.
+
+extends tag :
+It is used to inherit the template.
+syntax :
+{% extends 'parent_template' %}
+{% extends variable %}
+
+block tag :
+It is used to override the content of block tag.
+syntax :
+{% block blockname %}...{% endblock %}
+{% block blockname %}...{% endblock blockname %} -- (recommended)
+
+{{ block.super }} -> used to get content of parent template
+
+==========================================================================================
+
 
 
 
