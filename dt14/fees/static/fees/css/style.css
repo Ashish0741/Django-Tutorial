@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px 20px;
+    background-color: rgb(28, 157, 94);
+    color: rgb(104, 21, 239);
+    text-align: center;
+}
+
+img {
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+button {
+    margin: 10px;
+    background-color:burlywood;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
