@@ -1,0 +1,15 @@
+body {
+    background-color: darkslategray;
+}
+
+h1 {
+    color: rgb(212, 193, 116);
+}
+
+nav {
+    color:bisque;
+}
+
+.icon {
+    font-size: 100px;
+}
