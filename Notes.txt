@@ -649,6 +649,52 @@ syntax :
 
 ==========================================================================================
 
+url tag :
+
+The {% url 'name' %} template tag to generate URLs for views. 
+This tag takes the view name as an argument and returns the URL associated with that view.
+
+NOTE : we define name where our view function is mapped (incase of any include in path)
+
+syntax :
+{% url 'name' %}
+{% url 'name' as variable %}
+{% url '{{variable}}' %}
+
+==========================================================================================
+
+include tag :
+
+1. The {% include %} tag is used to include the contents of another template within the current template. 
+2. This allows you to reuse code and build modular templates.
+
+syntax :
+{% include variable %}
+{% include 'folder/template_name.html' %}
+
+
+Difference between include & extends :
+
+{% include %} is used for reusing the content of one template in another, while {% extends %} is used for creating a template hierarchy where one template serves as a base, and other templates can extend and override its blocks.
+
+
+NOTE : We can use context in included template which is passed by view function to rendering template or which can pass variables to included template using with keyword.
+
+syntax :
+{% include 'folder/template_name.html' with p='Python' %}
+
+If we don't want to included template to access variable passed by view function we can use only keyword.
+syntax :
+{% include 'folder/template_name.html' with p='Python' only %}
+
+==========================================================================================
+
+
+
+
+
+
+
 
 
 

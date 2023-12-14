@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block corecss %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'course/css/course.css' %}">
+{% endblock corecss %}
+
+{% block title %}{{block.super}} Course{% endblock title %}
+
+{% block navbar %}
+{{block.super}}
+<ul>
+    <li>Fees</li>
+</ul>
+{% endblock navbar %}
+
+{% block content %}
+    <h1>This is {{name}} course page</h1>
+    <h2>Course fees : Rs. {{fees}}</h2>
+
+    <hr>
+
+    {% include "core/topcourses.html" with p='PHP' %}
+    
+{% endblock content %}
