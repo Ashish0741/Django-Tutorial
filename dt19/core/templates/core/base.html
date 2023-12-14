@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+    {% block corecss %}
+    <link rel="stylesheet" href="{% static 'core/css/core.css' %}">
+    {% endblock corecss %}
+    <title>{% block title %}Django{% endblock title%}</title>
+</head>
+<body>
+    {% block navbar %}
+        <nav>
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'aboutpage' %}">About</a></li>
+                <li><a href="{% url 'djangocourse' %}">Django Course</a></li>
+            </ul>
+        </nav>
+    {% endblock navbar %}
+
+    <div class="icon">
+        <i class="fa-brands fa-python fa-fade fa-2xl" style="color: #958904;"></i>
+    </div>
+
+    <br>
+    <br>
+
+    {% block content %}
+        
+    {% endblock content %}
+
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/popper.js' %}"></script>
+    <script src="{% static 'core/js/fontawesome.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+</body>
+</html>

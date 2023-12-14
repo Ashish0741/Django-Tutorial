@@ -1,0 +1,16 @@
+body {
+    background-color: darkslategray;
+}
+
+h1 {
+    color: rgb(212, 193, 116);
+}
+
+.icon {
+    font-size: 100px;
+}
+
+li a {
+    text-decoration: none;
+    color:bisque;
+}
