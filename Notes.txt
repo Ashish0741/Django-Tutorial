@@ -765,5 +765,68 @@ showmigrations - This will lists the project's migrations and their status.
 
 ==========================================================================================
 
+Admin Application :
+
+1. It is built-in application provided by Django.
+2. This application provides admin interface for CRUD operations without writing the sql statements.
+3. We need to create super user to login admin application.
+
+To create super user :
+syntax : python manage.py createsuperuser
+
+==========================================================================================
+
+How to register model in django :
+
+1. Open admin.py file inside application folder
+2. import model from models.py file
+3. write "admin.site.register(ModelName)"
+
+NOTE : To perform CRUD operations on our own model or table in admin interface we need to register the model
+
+__str__() method :
+This method is called whenever we call str() on the object.
+
+==========================================================================================
+
+Model Admin Class :
+
+Need : It used for displaying all table data in admin interface
+
+It is representation of a model in admin interface.
+
+To show all data of table in admin interface we have to create an ModelAdmin class in admin.py file of application folder.
+
+syntax :
+
+Creating ModelAdmin Class :
+
+class ModelAdminClassName(admin.ModelAdmin):
+    list_display = ('field_name1', 'field_name2',..) --> we can use list too instead of tuple
+
+Register the above class :
+
+admin.site.register(ModelName, ModelAdminClassName)
+
+-----------------------------------------------------------------------------------------
+
+list_display :
+
+It is used to display multiple fields in admin interface of tables if it is not set then by default __str__() representation of each object will be displayed.
+
+There are four types of values that can be displayed in list_display :
+1. The name of model field
+2. A callable that accepts one argument, model instance
+3. A string representing a ModelAdmin method that accepts one argument, model instance
+4. A string representing a model attribute or method (without any required argument)
+
+How to register Model using decorator :
+
+@admin.register(ModelName)
+class ModelAdminClassName(admin.ModelAdmin):
+    list_display = ('field_name1', 'field_name2',..)
+
+==========================================================================================
+
 
 
