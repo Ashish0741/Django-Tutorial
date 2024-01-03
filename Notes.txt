@@ -828,5 +828,63 @@ class ModelAdminClassName(admin.ModelAdmin):
 
 ==========================================================================================
 
+Django Form :
+
+It can simplify and automate the vast portion of work like data prepared for display in a form, rendered as HTML, edit using convenient interface, validating and cleaned up etc.
+
+Django handles three distinct parts of the work involved in forms :
+1. preparing and restructuring data to make it ready for rendering
+2. creating HTML forms for data
+3. receiving and processing submitted forms and data from the client.
+
+Creating Django form using form class :
+
+1. create forms.py file inside application folder
+2. form django import forms
+3. create class for form :
+syntax :
+class FormClassName(forms.Form):
+    label = forms.FieldType()
+    label = forms.FieldType(label='display')
+
+Display the form object in template :
+
+1. create form object in views.py
+    - from .forms import FormClassName
+    - def showobject(request):
+        form = FormClassName()
+        return render(request, 'template_name', {'form' : form})
+
+2. Access dict key in template
+    - <html>{{form}}</html>
+
+
+Form rendering options :
+
+1. {{form}} -- it will render them all 
+2. {{form.as_table}} -- it will render them as table cells wrapped inside <tr> tags
+3. {{form.as_p}} -- it will render them as table cells wrapped inside <p> tags
+4. {{form.as_ul}} -- it will render them as table cells wrapped inside <li> tags
+5. {{form.name_of_field}} -- it will render field manually as given
+
+
+Configure id attribute :
+1. we can change id attribute using auto_id parameter
+2. we need to pass auto_id parameter in constructor
+2. There are 4 ways to change id attribute :
+    - auto_id='some_%s' (this will change id and label value to given value)
+    - auto_id=True (this will change id and label value to field name)
+    - auto_id=False (this will change remove id and label tag)
+    - auto_id='geeky' (this will act as same as True one)
+
+
+Display label_suffix :
+we can change label suffix by passing label_suffix parameter to constructor
+syntax : label_suffix='-'
+
+Configure initial value of field :
+we can set initial value of each field at runtime by passing initial={'field' : value } in constructor
+
+==========================================================================================
 
 
