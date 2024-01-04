@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Form | Student Registration</title>
+</head>
+<body>
+    <form action="" method="get">
+        <h1>Accessing multiple form fields manually</h1>
+        {% for field in form %}
+            {% if field.is_hidden %}
+                {{field}}
+            {% else %}
+                {{field.label_tag}}
+                {{field}}
+            {% endif %}
+        {% endfor %}
+        <input type="submit" value="Submit">
+        <hr>
+        <h1>Accessing multiple form fields manually but don't show hidden field</h1>
+        {% for field in form.visible_fields %}
+            {{field.label_tag}}
+            {{field}}
+        {% endfor %}
+        {% for hidden in form.hidden_fields %}
+            {{hidden}}
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

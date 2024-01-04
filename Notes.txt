@@ -885,6 +885,26 @@ syntax : label_suffix='-'
 Configure initial value of field :
 we can set initial value of each field at runtime by passing initial={'field' : value } in constructor
 
+
+Rearranging the order of form field :
+we use order_fields method to rearrange the form field.
+
+syntax :
+form = StudentRegistration()
+form.order_fields(field_order=['field1','field2',..]) NOTE : by default field_order is None
+
 ==========================================================================================
 
+Render Form Fields Manually in Django :
+
+1. {{form.field_name.id_for_label}} -- it is used for fetching for value in label tag
+2. {{form.field_name}} -- it is used for placing input tag for mentioned field
+3. {{form.field_name.label_tag}} -- it is used for placing entire label tag
+4. {{form.field_name.label}} --  it is used for fetching label value 
+5. {{form.field_name.value}} -- it is used for fetching initial value of field
+6. {{form.field_name.html_name}} -- it is used for fetching name value of input tag
+7. {{form.field_name.help_text}} -- it is used for fetching help text of field
+8. {{form.field_name.field.attribute}} --  it is used for fetching value of mentioned attribute of field
+
+==========================================================================================
 
